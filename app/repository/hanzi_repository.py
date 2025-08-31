@@ -24,9 +24,7 @@ class HanziRepository:
 
     @staticmethod
     async def get_by_id(hanzi_id: int) -> Optional[Hanzi]:
-        return await Hanzi.get_or_none(id=hanzi_id).select_related(
-            "image_file", "category"
-        )
+        return await Hanzi.get_or_none(id=hanzi_id)
 
     @staticmethod
     async def get_all(skip: int = 0, limit: int = 100) -> List[Hanzi]:
@@ -34,7 +32,6 @@ class HanziRepository:
             await Hanzi.all()
             .offset(skip)
             .limit(limit)
-            .select_related("image_file", "category")
         )
 
     @staticmethod
@@ -45,7 +42,6 @@ class HanziRepository:
             await Hanzi.filter(hsk_level=hsk_level)
             .offset(skip)
             .limit(limit)
-            .select_related("image_file", "category")
         )
 
     @staticmethod
@@ -61,7 +57,6 @@ class HanziRepository:
         return (
             await query.offset(skip)
             .limit(limit)
-            .select_related("image_file", "category")
         )
 
     @staticmethod

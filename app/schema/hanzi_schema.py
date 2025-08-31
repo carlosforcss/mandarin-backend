@@ -26,8 +26,8 @@ class HanziSchema(BaseModel):
     pinyin: str
     meaning: str
     hsk_level: int
-    image_file: Optional[FileSchema] = None
-    category: Optional[CategorySchema] = None
+    image_file_id: Optional[int] = None
+    category_id: Optional[int] = None
 
     class Config:
         from_attributes = True
