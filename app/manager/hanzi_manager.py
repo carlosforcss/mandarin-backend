@@ -1,6 +1,6 @@
 from typing import List, Optional
 from app.repository.hanzi_repository import HanziRepository
-from app.repository.models import Hanzi
+from app.models import Hanzi
 from app.schema.hanzi_schema import HanziCreateSchema, HanziUpdateSchema
 
 

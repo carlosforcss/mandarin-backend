@@ -1,7 +1,7 @@
 from typing import List, Optional
 import uuid
 from app.repository.file_repository import FileRepository
-from app.repository.models import File
+from app.models import File
 from app.schema.file_schema import FileUpdateSchema
 from app.integrations.s3 import S3Service
 from app.config.settings import settings

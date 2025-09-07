@@ -1,6 +1,6 @@
 from typing import List, Optional
 from tortoise.queryset import QuerySet
-from app.repository.models import Hanzi
+from app.models import Hanzi
 
 
 class HanziRepository:

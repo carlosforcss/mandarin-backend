@@ -1,5 +1,5 @@
 from typing import List, Optional
-from app.repository.models import Category
+from app.models import Category
 
 
 class CategoryRepository:

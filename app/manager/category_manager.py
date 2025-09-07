@@ -1,6 +1,6 @@
 from typing import List, Optional
 from app.repository.category_repository import CategoryRepository
-from app.repository.models import Category
+from app.models import Category
 from app.schema.category_schema import CategoryCreateSchema, CategoryUpdateSchema
 
 

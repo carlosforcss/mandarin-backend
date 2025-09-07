@@ -1,5 +1,5 @@
 from typing import List, Optional
-from app.repository.models import File
+from app.models import File
 
 
 class FileRepository:

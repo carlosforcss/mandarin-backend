@@ -4,7 +4,7 @@ from app.config.settings import settings
 
 async def init_db():
     await Tortoise.init(
-        db_url=settings.database_url, modules={"models": ["app.repository.models"]}
+        db_url=settings.database_url, modules={"models": ["app.models"]}
     )
     await Tortoise.generate_schemas()
 

@@ -35,15 +35,3 @@ class Hanzi(Model):
         table = "hanzis"
 
 
-class Sentence(Model):
-    id = fields.IntField(pk=True)
-    sentence_text = fields.TextField()
-    pinyin = fields.TextField()
-    meaning = fields.TextField()
-    category = fields.ForeignKeyField(
-        "models.Category", related_name="sentences", null=True
-    )
-    hanzis = fields.ManyToManyField("models.Hanzi", related_name="sentences")
-
-    class Meta:
-        table = "sentences"
