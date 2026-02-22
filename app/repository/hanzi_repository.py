@@ -11,6 +11,7 @@ class HanziRepository:
         meaning: str,
         hsk_level: int,
         image_file_id: Optional[int] = None,
+        audio_file_id: Optional[int] = None,
         category_id: Optional[int] = None,
     ) -> Hanzi:
         return await Hanzi.create(
@@ -19,6 +20,7 @@ class HanziRepository:
             meaning=meaning,
             hsk_level=hsk_level,
             image_file_id=image_file_id,
+            audio_file_id=audio_file_id,
             category_id=category_id,
         )
 

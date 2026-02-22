@@ -15,6 +15,7 @@ class HanziManager:
             meaning=hanzi_data.meaning,
             hsk_level=hanzi_data.hsk_level,
             image_file_id=hanzi_data.image_file_id,
+            audio_file_id=hanzi_data.audio_file_id,
             category_id=hanzi_data.category_id,
         )
 

@@ -27,11 +27,23 @@ class Hanzi(Model):
     meaning = fields.TextField()
     hsk_level = fields.IntField()
     image_file = fields.ForeignKeyField("models.File", related_name="hanzis", null=True)
+    audio_file = fields.ForeignKeyField("models.File", related_name="hanzi_audio", null=True)
     category = fields.ForeignKeyField(
         "models.Category", related_name="hanzis", null=True
     )
 
     class Meta:
         table = "hanzis"
+
+
+class Score(Model):
+    id = fields.IntField(pk=True)
+    game_slug = fields.CharField(max_length=100)
+    player = fields.CharField(max_length=100)
+    score = fields.IntField()
+
+    class Meta:
+        table = "scores"
+        unique_together = (("game_slug", "player"),)
 
 

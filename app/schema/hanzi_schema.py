@@ -27,6 +27,7 @@ class HanziSchema(BaseModel):
     meaning: str
     hsk_level: int
     image_file_id: Optional[int] = None
+    audio_file_id: Optional[int] = None
     category_id: Optional[int] = None
 
     class Config:
@@ -39,6 +40,7 @@ class HanziCreateSchema(BaseModel):
     meaning: str
     hsk_level: int
     image_file_id: Optional[int] = None
+    audio_file_id: Optional[int] = None
     category_id: Optional[int] = None
 
 
@@ -48,4 +50,5 @@ class HanziUpdateSchema(BaseModel):
     meaning: Optional[str] = None
     hsk_level: Optional[int] = None
     image_file_id: Optional[int] = None
+    audio_file_id: Optional[int] = None
     category_id: Optional[int] = None

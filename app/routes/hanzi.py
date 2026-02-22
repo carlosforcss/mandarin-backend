@@ -1,10 +1,14 @@
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import StreamingResponse
 from typing import List, Optional
+import io
 from app.manager.hanzi_manager import HanziManager
+from app.services.speech_service import SpeechService
 from app.schema.hanzi_schema import HanziSchema, HanziCreateSchema, HanziUpdateSchema
 
 router = APIRouter()
 hanzi_manager = HanziManager()
+speech_service = SpeechService()
 
 
 @router.post("/", response_model=HanziSchema)
@@ -50,6 +54,19 @@ async def update_hanzi(hanzi_id: int, hanzi_data: HanziUpdateSchema):
     if not hanzi:
         raise HTTPException(status_code=404, detail="Hanzi not found")
     return hanzi
+
+
+@router.get("/{hanzi_id}/speech")
+async def get_hanzi_speech(hanzi_id: int):
+    audio_content = await speech_service.get_hanzi_speech(hanzi_id)
+    if not audio_content:
+        raise HTTPException(status_code=404, detail="Hanzi not found or speech generation failed")
+    
+    return StreamingResponse(
+        io.BytesIO(audio_content),
+        media_type="audio/mpeg",
+        headers={"Content-Disposition": f"attachment; filename=hanzi_{hanzi_id}_speech.mp3"}
+    )
 
 
 @router.delete("/{hanzi_id}")

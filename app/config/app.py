@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from app.config.db import init_db, close_db
-from app.routes import hanzi, file, category
+from app.routes import hanzi, file, category, score
 
 
 @asynccontextmanager
@@ -31,5 +31,6 @@ def create_app() -> FastAPI:
     app.include_router(hanzi.router, prefix="/api/hanzi", tags=["hanzi"])
     app.include_router(file.router, prefix="/api/files", tags=["files"])
     app.include_router(category.router, prefix="/api/categories", tags=["categories"])
+    app.include_router(score.router, prefix="/api/scores", tags=["scores"])
 
     return app
